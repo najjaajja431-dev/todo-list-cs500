@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block title %}إنشاء حساب{% endblock %}
+{% block main %}
+<h2>إنشاء حساب جديد</h2>
+<form action="/register" method="post">
+    <div class="mb-3">
+        <input class="form-control" name="username" placeholder="اسم المستخدم" type="text">
+    </div>
+    <div class="mb-3">
+        <input class="form-control" name="password" placeholder="كلمة السر" type="password">
+    </div>
+    <div class="mb-3">
+        <input class="form-control" name="confirmation" placeholder="تأكيد كلمة السر" type="password">
+    </div>
+    <button class="btn btn-primary" type="submit">تسجيل</button>
+</form>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block title %}الرئيسية{% endblock %}
+{% block main %}
+<h2>مهامي</h2>
+<form action="/add" method="post" class="d-flex mb-4">
+    <input class="form-control me-2" name="title" placeholder="مهمة جديدة..." type="text">
+    <button class="btn btn-success" type="submit">إضافة</button>
+</form>
+<ul class="list-group">
+    {% for task in tasks %}
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        <span style="{% if task.done %}text-decoration: line-through; color: gray;{% endif %}">
+            {{ task.title }}
+        </span>
+        <span>
+            <a href="/toggle/{{ task.id }}" class="btn btn-sm btn-outline-secondary">
+                {% if task.done %}تراجع{% else %}تم{% endif %}
+            </a>
+            <a href="/delete/{{ task.id }}" class="btn btn-sm btn-outline-danger">حذف</a>
+        </span>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
